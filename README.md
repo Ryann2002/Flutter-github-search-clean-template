@@ -1,6 +1,6 @@
 # flutter_git_search
 
-A new Flutter project.
+A new Flutter project based in a Flutterando video https://github.com/Ryann2002/Flutter-github-search-clean-template 
 
 ## Getting Started
 
