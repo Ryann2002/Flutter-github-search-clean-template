@@ -19,9 +19,9 @@ class GitHubDataSource implements ISearchDataSource {
   @override
   Future<List<ResultSearchModel>?> getSearch(String? searchText) async {
     String normalizedString = searchText.normalize();
+    const url = "https://api.github.com/search/users?q=";
     try {
-      final Response response = await dio
-          .get("https://api.github.com/search/users?q=" + normalizedString);
+      final response = await dio.get(url + normalizedString);
 
       if (response.statusCode == 200) {
         final list = (response.data["items"] as List)
@@ -33,7 +33,7 @@ class GitHubDataSource implements ISearchDataSource {
         throw DataSourceError();
       }
     } catch (e) {
-      throw HttpClientError();
+      throw DataSourceError();
     }
   }
 }
