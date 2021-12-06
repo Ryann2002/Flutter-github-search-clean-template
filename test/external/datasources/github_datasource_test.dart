@@ -48,6 +48,6 @@ main() {
     when(dio.get(url + searchedText)).thenThrow(Exception());
 
     final future = dataSource.getSearch(searchedText);
-    expect(future, throwsA(isA<HttpClientError>()));
+    expect(future, throwsA(isA<DataSourceError>()));
   });
 }
